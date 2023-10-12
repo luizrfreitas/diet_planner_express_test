@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+
+    <title>Diete manager</title>
+</head>
+<body>
+    <h1 class="p-5 text-primary">Diet Manager</h1>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="container col">
+                    <table class="table">
+                        <thead>
+                            <tr class="row">
+                                <td class="col">Name</td>
+                                <td class="col">Weight</td>
+                                <td class="col">Calories</td>
+                                <td class="col">Carbs</td>
+                                <td class="col">Protein</td>
+                                <td class="col">Fats</td>
+                                <td class="col">Edit</td>
+                                <td class="col">Delete</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row">
+                                <td class="col">Egg</td>
+                                <td class="col">50</td>
+                                <td class="col">30</td>
+                                <td class="col">1</td>
+                                <td class="col">6</td>
+                                <td class="col">6</td>
+                                <td class="col"><button class="btn">Edit</button></td>
+                                <td class="col"><button class="btn">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container col-3">
+                    <div class="container ms-5">
+                        <div class="row container">
+                            <input type="text" class="col" id="queryInput">
+                            <button class="col" id="runQuery">Add food</button>
+                        </div>
+                        <div class="row"><p>AAAAAAAAAAAAAAAAAAAAAA</p></div>
+                        <div class="row"><p>AAAAAAAAAAAAAAAAAAAAAA</p></div>
+                        <div class="row"><p>AAAAAAAAAAAAAAAAAAAAAA</p></div>
+                    </div>
+                    <div class="container ms-5">
+                        <h2 class="text-primary">Add New Food to the DataBase</h2>
+                        <form action="" class="container">
+                            <div class="row py-1">
+                                <label class="col-4" for="name">Name</label>
+                                <input class="col" type="text" name="name">
+                            </div>
+                            <div class="row py-1">
+                                <label class="col-4" for="weight">Weight</label>
+                                <input class="col" type="text" name="weight">
+                            </div>
+                            <div class="row py-1">
+                                <label class="col-4" for="kcal">Kcal</label>
+                                <input class="col" type="text" name="kcal">
+                            </div>
+                            <div class="row py-1">
+                                <label class="col-4" for="car">Carbo</label>
+                                <input class="col" type="text" name="car">
+                            </div>
+                            <div class="row py-1">
+                                <label class="col-4" for="pro">Protein</label>
+                                <input class="col" type="text" name="pro">
+                            </div>
+                            <div class="row py-1">
+                                <label class="col-4" for="fat">Fat</label>
+                                <input class="col" type="text" name="fat">
+                            </div>
+                            <div class="row d-flex justify-content-center my-2">
+                                <button class="btn btn-success w-50" id="btnSubmit">Submit</button>
+                            </div>
+                        </form>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
