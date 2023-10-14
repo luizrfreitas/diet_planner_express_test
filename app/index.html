@@ -6,6 +6,7 @@
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./index.js"></script>
 
@@ -208,7 +209,37 @@
                     </div>
                 </div>
                 <div class="col">
-                    
+                    <div class="container w-50">
+                        <form action="" class="container row">
+                            <div class="row">
+                                <label class="col" for="name">Name</label>
+                                <input class="col" name="name" id="name" type="text">
+                            </div>
+                            <div class="row">
+                                <label class="col" for="weight">Weight</label>
+                                <input class="col" name="weight" id="weight" type="text">
+                            </div>
+                            <div class="row">
+                                <label class="col" for="kcal">Kcal</label>
+                                <input class="col" name="kcal" id="kcal" type="text">
+                            </div>
+                            <div class="row">
+                                <label class="col" for="car">CAR</label>
+                                <input class="col" name="car" id="car" type="text">
+                            </div>
+                            <div class="row">
+                                <label class="col" for="pro">PRO</label>
+                                <input class="col" name="pro" id="pro" type="text">
+                            </div>
+                            <div class="row">
+                                <label class="col" for="fat">FAT</label>
+                                <input class="col" name="fat" id="fat" type="text">
+                            </div>
+                        </form>
+                        <div class="row text-center">
+                            <button class="btn btn-sm btn-success" id="btnAddFood">Add</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
