@@ -18,11 +18,10 @@ app.post('addFood', (req, res) => {
 
 app.get('/searchFood', (req, res) => {
     const data = {name: req.query.name};
-    const queryReturn = table.getFood(data);
-    queryReturn
-        .then((data) => {console.log(data)});
+    const result = table.getFood(data);
 
-    res.send({teste: 'teste'});
+    result
+    .then(response => res.json({ data: response }));
 });
 
 app.get('/', (req, res) => {
