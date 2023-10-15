@@ -4,7 +4,7 @@ class DietPlannerTable {
     async getFood(data)
     {
         const returnData = await new Promise((resolve, reject) => {
-            const selectString = `SELECT * FROM foods_db WHERE name = "banana";`;
+            const selectString = `SELECT * FROM foods_db WHERE name REGEXP "^${data.name}" LIMIT 3;`;
             const dbservice = new DatabaseService();
             dbservice.getConnection
             .query(
