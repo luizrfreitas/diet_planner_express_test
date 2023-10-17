@@ -1,0 +1,7 @@
+version: '3'
+services:
+  node-app:
+    image: node-docker
+    container_name: my-node-container
+    stdin_open: true
+    tty: true
