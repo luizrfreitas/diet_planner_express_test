@@ -1,18 +1,18 @@
-FROM node:latest
+FROM node:14
 
-# WORKDIR /usr/src/app
+WORKDIR /usr/src/app
 
 # # Copy the package.json and package-lock.json files to the working directory
-# COPY package*.json ./
+COPY package*.json ./
 
 # # Install dependencies
-# RUN npm install
+RUN npm install
 
 # # Copy the rest of the application code to the working directory
 # COPY . .
 
 # # Expose the port on which your Node.js application runs
-# EXPOSE 3000
+EXPOSE 5000
 
 # Command to run your Node.js application
-# CMD [ "node", "app.js" ]
+# CMD [ "nodemon", "server.js" ]
