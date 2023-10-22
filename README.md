@@ -12,5 +12,4 @@ mysql2
 dotenv
 express
 cors
-jquery
 bootstrap
