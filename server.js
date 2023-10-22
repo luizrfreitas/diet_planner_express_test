@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv').config();
 
-const DietPlannerController = require('./src/controller/DietPlannerController.js');
-const DietPlannerTable = require('./src/model/DietPlannerTable.js');
+const DietPlannerController = require('./server/src/controller/DietPlannerController.js');
+const DietPlannerTable = require('./server/src/model/DietPlannerTable.js');
 
 const table = new DietPlannerTable();
 
@@ -25,7 +25,7 @@ app.get('/searchFood', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('aaaaaaaa World!')
 });
 
 const port = 5000;
