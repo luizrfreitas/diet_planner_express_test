@@ -1,41 +1,3 @@
-$(document).ready(function() {
-    const rootPath = "http://localhost:5000/";
-
-    $(document).on('click', '#btnAddFood', () => {
-
-        const name = $('#name').val();
-        const weight = $('#weight').val();
-        const car = $('#car').val();
-        const pro = $('#pro').val();
-        const fat = $('#fat').val();
-
-        const dataToSend = {
-            name: name,
-            weight: weight,
-            car: car,
-            pro: pro,
-            fat: fat,
-        };
-
-        fetch(rootPath + 'addFood', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dataToSend),
-        });
-    });
-
-    $(document).on('click', '#searchFoodBtn', () => {
-        const name = $('#searchFood').val();
-        const uriParams = `?name=${name}`;
-
-        fetch(rootPath + 'searchFood' + uriParams)
-        .then(response => response.json())
-        .then(data => setFoodCards(data['data']));
-    });
-});
-
 function setFoodCards(data)
 {
     try {
@@ -73,23 +35,24 @@ function setFoodCards(data)
                 </div>
             </div>
             `;
-            $('#fetchedFoods').append(foodCard);
+            
+            foodCardDiv.innerHTML += foodCard;
         });
 
         const addToMealButton = document.getElementsByClassName('addToMeal');
         for (const element of addToMealButton) {
             element.addEventListener('click', () => {
-                addMealPainel(element.parentElement.parentElement);
+                addMealPanel(element.parentElement.parentElement);
             });
         }
     } catch (err) {
-        $('#fetchedFoods').append(data);
+        foodCardDiv.innerHTML += foodCard;
     }
 }
 
-function addMealPainel(element)
+function addMealPanel(element)
 {
-    const addPainel =
+    const addpanel =
     `<div class='container position-absolute top-0 start-0 bg-white'>
         <div class='row'> 
             <p>Add to meal:</p>
@@ -109,12 +72,10 @@ function addMealPainel(element)
             </div>
         </div>
         <div class='row'>
-            <button class='btn btn-warning'>close</button>
+            <button class='btn btn-warning' id='closePanel'>close</button>
         </div>
     </div>`;
-    element.innerHTML += addPainel;
+    element.innerHTML += addpanel;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-
-});
+export { setFoodCards, addMealPanel };
