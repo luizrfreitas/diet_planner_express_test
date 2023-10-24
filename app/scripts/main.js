@@ -1,7 +1,5 @@
 import * as handlers from './handlers.js';
-import * as utils from './utils.js';
-
-const rootPath = "http://localhost:5000/";
+import * as config from './config.js';
 
 const btnAddFood = document.getElementById('btnAddFood');
 btnAddFood.addEventListener('click', () => {
@@ -19,7 +17,7 @@ btnAddFood.addEventListener('click', () => {
         fat: fat,
     };
 
-    fetch(rootPath + 'addFood', {
+    fetch(config.rootPath + 'addFood', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -33,7 +31,15 @@ searchFoodBtn.addEventListener('click', () => {
     const name = document.getElementById('searchFood').value;
     const uriParams = `?name=${name}`;
 
-    fetch(rootPath + 'searchFood' + uriParams)
+    fetch(config.rootPath + 'searchFood' + uriParams)
         .then(response => response.json())
-        .then(data => handlers.setFoodCards(data['data']));
+        .then(data => handlers.setFoodCards(data['data']))
+        .finally(data => {
+            const addToMealButton = document.getElementsByClassName('addToMeal');
+            for (const element of addToMealButton) {
+                element.addEventListener('click', () => {
+                    handlers.addMealPanel(element.parentElement.parentElement);
+                });
+            }
+        });
 });
