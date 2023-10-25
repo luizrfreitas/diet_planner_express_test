@@ -1,5 +1,5 @@
 const foodCard = (values) => {
-    return `<div class="border border-dark position-relative">
+    return `<div class="border border-dark position-relative" id="foodCard">
                 <div>${values.name}</div>
                 <div>
                     <table>
@@ -55,4 +55,22 @@ const addPanel = (values) => {
             </div>`;
 }
 
-export { foodCard, addPanel };
+const foodRow = () => {
+    return `<tr>
+        <td>1</td>
+        <td>FOOD</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td><button class="btn btn-warning">EDIT</button></td>
+        <td><button class="btn btn-danger">DELETE</button></td>
+    </tr>`
+}
+
+export {
+    foodCard,
+    addPanel,
+    foodRow,
+};

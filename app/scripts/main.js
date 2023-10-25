@@ -43,3 +43,26 @@ searchFoodBtn.addEventListener('click', () => {
             }
         });
 });
+
+document.addEventListener('click', (event) => {
+    if (event.target.matches('#closePanel')) {
+        console.log(event.target.closest('#foodCard').remove());
+    }
+
+    if (event.target.matches('#')) {
+    
+    }
+
+    if (event.target.matches('#')) {
+    
+    }
+
+    if (event.target.matches('#')) {
+    
+    }
+
+    if (event.target.matches('#')) {
+    
+    }
+});
+

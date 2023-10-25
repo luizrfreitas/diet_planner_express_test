@@ -28,4 +28,9 @@ function addMealPanel(element)
     element.innerHTML += addpanel;
 }
 
+function closePanel(element)
+{
+    
+}
+
 export { setFoodCards, addMealPanel };
