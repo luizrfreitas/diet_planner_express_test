@@ -1,10 +1,10 @@
-const DatabaseService = require('../../services/DatabaseService.js');
+const DatabaseService = require('../services/DatabaseService.js');
 
 class DietPlannerTable {
     async getFood(data)
     {
         const returnData = await new Promise((resolve, reject) => {
-            const selectString = `SELECT * FROM foods_db WHERE name REGEXP "^${data.name}" LIMIT 3;`;
+            const selectString = `SELECT * FROM foods WHERE name REGEXP "^${data.name}" LIMIT 3;`;
             const dbservice = new DatabaseService();
             dbservice.getConnection
             .query(

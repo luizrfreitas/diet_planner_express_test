@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv').config();
 
-const DietPlannerController = require('./server/src/controller/DietPlannerController.js');
-const DietPlannerTable = require('./server/src/model/DietPlannerTable.js');
+const DietPlannerController = require('./controllers/DietPlannerController.js');
+const DietPlannerTable = require('./models/DietPlannerModel.js');
+
+const FoodController = require('./controllers/FoodController.js');
+const food = new FoodController();
 
 const table = new DietPlannerTable();
 
@@ -11,10 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
-app.post('addFood', (req, res) => {
-    res.send('teste');
-});
 
 app.get('/searchFood', (req, res) => {
     const data = {name: req.query.name};
@@ -31,6 +30,10 @@ app.get('/searchFood', (req, res) => {
             }
         });
     }
+});
+
+app.post('/food/create', (req, res) => {
+    food.createFood();
 });
 
 app.get('/', (req, res) => {
