@@ -4,21 +4,17 @@ class FoodController {
 
     static model = new FoodModel();
 
-    async createFood()
+    async createFood(body)
     {
+        let logMessage = { status: 200, message: "Food created with success!" };
         try {
-            const data = {
-                name: "Leite Integral",
-                base_weight: 100,
-                kcal: 200,
-                car: 20,
-                pro: 20,
-                fat: 20
-            }
-            await FoodController.model.createFood(data).then(response => {});
+            await FoodController.model.createFood(body).then(response => {});
         } catch (error) {
-            console.log(error);
+            console.log("An error occurred: ", error.message);
+            logMessage.status = 500;
+            logMessage.message = `An error occurred: ${error.message}`
         }
+        return logMessage;
     }
 
 }

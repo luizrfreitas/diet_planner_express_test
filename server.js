@@ -11,9 +11,15 @@ const food = new FoodController();
 const table = new DietPlannerTable();
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+const port = 5000;
+app.listen(port, () => {
+    
+});
 
 app.get('/searchFood', (req, res) => {
     const data = {name: req.query.name};
@@ -33,14 +39,12 @@ app.get('/searchFood', (req, res) => {
 });
 
 app.post('/food/create', (req, res) => {
-    food.createFood();
+    const body = req.body;
+    food.createFood(body);
+    res.json({status:200})
 });
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-const port = 5000;
-app.listen(port, () => {
-    
-});

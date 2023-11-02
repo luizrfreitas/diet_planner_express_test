@@ -6,19 +6,15 @@ class FoodModel {
     
     async createFood(data)
     {
-        try {
-            const returnData = await new Promise((resolve, reject) => {
-                const row =
-                    `INSERT INTO foods (name, base_weight, kcal, car, pro, fat)
-                    VALUES ("${data.name}", ${data.base_weight}, ${data.kcal}, ${data.car}, ${data.pro}, ${data.fat});`;
-                FoodModel.db.getConnection.query(row, (err, results, fields) => {
-                    resolve(results);
-                });
-            }, 3000);
-            return returnData;
-        } catch (error) {
-            return error;
-        }
+        const returnData = await new Promise((resolve, reject) => {
+            const row =
+                `INSERT INTO foods (name, base_weight, kcal, car, pro, fat)
+                VALUES ("${data.name}", ${data.base_weight}, ${data.kcal}, ${data.car}, ${data.pro}, ${data.fat});`;
+            FoodModel.db.getConnection.query(row, (err, results, fields) => {
+                resolve(results);
+            });
+        }, 3000);
+        return returnData;
     }
 
     async deleteFood(data)
