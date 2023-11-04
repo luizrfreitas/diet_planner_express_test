@@ -40,8 +40,31 @@ app.get('/searchFood', (req, res) => {
 
 app.post('/food/create', (req, res) => {
     const body = req.body;
-    food.createFood(body);
-    res.json({status:200})
+    const message = food.createFood(body);
+    message
+        .then(response => {res.json(response)});
+});
+
+app.delete('/food/delete', (req, res) => {
+    const data = {id: req.query.id};
+    const message = food.deleteFood(data);    
+    message
+        .then(response => {res.json(response)});
+});
+
+app.put('/food/edit', (req, res) => {
+    const data = {
+        name: req.query.name,
+        base_weight: req.query.base_weight,
+        kcal: req.query.kcal,
+        car: req.query.car,
+        pro: req.query.pro,
+        fat: req.query.fat
+    };
+
+    const message = food.editFood(data);    
+    message
+        .then(response => {res.json(response)});
 });
 
 app.get('/', (req, res) => {

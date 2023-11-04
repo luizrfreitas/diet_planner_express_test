@@ -8,6 +8,53 @@ class FoodController {
     {
         let logMessage = { status: 200, message: "Food created with success!" };
         try {
+            await FoodController.model.createFood(body);
+        } catch (error) {
+            logMessage.status = 500;
+            logMessage.message = `An error occurred: ${error.message}`
+        }
+        return logMessage;
+    }
+
+    async deleteFood(data)
+    {
+        let logMessage = { status: 200, message: "Food deleted with success!" };
+        try {
+            await FoodController.model.deleteFood(data);
+        } catch (error) {
+            logMessage.status = 500;
+            logMessage.message = `An error occurred: ${error.message}`
+        }
+        return logMessage;
+    }
+
+    async editFood(data)
+    {
+        let logMessage = { status: 200, message: "Food updated with success!" };
+
+        delete data.name;
+
+        let columns = Object.keys(data);
+        columns = columns.join(",");
+        let values = Object.values(data);
+        values = values.join(",");
+
+        console.log(columns);
+        console.log(values);
+        return;
+        try {
+            await FoodController.model.editFood(data);
+        } catch (error) {
+            logMessage.status = 500;
+            logMessage.message = `An error occurred: ${error.message}`
+        }
+        return logMessage;
+    }
+
+    async getFood(body)
+    {
+        let logMessage = { status: 200, message: "Food created with success!" };
+        try {
             await FoodController.model.createFood(body).then(response => {});
         } catch (error) {
             console.log("An error occurred: ", error.message);

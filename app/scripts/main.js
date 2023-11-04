@@ -49,20 +49,20 @@ document.addEventListener('click', (event) => {
         console.log(event.target.closest('#foodCard').remove());
     }
 
-    if (event.target.matches('#')) {
+    // if (event.target.matches('#')) {
     
-    }
+    // }
 
-    if (event.target.matches('#')) {
+    // if (event.target.matches('#')) {
     
-    }
+    // }
 
-    if (event.target.matches('#')) {
+    // if (event.target.matches('#')) {
     
-    }
+    // }
 
-    if (event.target.matches('#')) {
+    // if (event.target.matches('#')) {
     
-    }
+    // }
 });
 

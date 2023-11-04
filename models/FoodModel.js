@@ -19,12 +19,37 @@ class FoodModel {
 
     async deleteFood(data)
     {
-        return null;
+        //WON'T DELETE DUE TO FOREIGN KEY. MUST UPDATE THE TABLE TO HAVE DELETED COLUMN
+        const returnData = await new Promise((resolve, reject) => {
+            const row =
+                `DELETE FROM foods WHERE id = ${data.id};`;
+            FoodModel.db.getConnection.query(row, (err, results, fields) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(results);
+            });
+        }, 3000);
+        return returnData;
     }
 
     async editFood(data)
     {
-        return null;
+
+        
+        return;
+        const returnData = await new Promise((resolve, reject) => {
+            const row =
+                `UPDATE foods (name, base_weight, kcal, car, pro, fat)
+                VALUES (${data.name}, ${data.base_weight}, ${data.kcal}, ${data.car}, ${data.pro}, ${data.fat});`;
+            FoodModel.db.getConnection.query(row, (err, results, fields) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(results);
+            });
+        }, 3000);
+        return returnData;
     }
 
     async getFood(data)
