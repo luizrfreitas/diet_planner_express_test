@@ -54,15 +54,16 @@ app.delete('/food/delete', (req, res) => {
 
 app.put('/food/edit', (req, res) => {
     const data = {
-        name: req.query.name,
-        base_weight: req.query.base_weight,
-        kcal: req.query.kcal,
-        car: req.query.car,
-        pro: req.query.pro,
-        fat: req.query.fat
+        id: req.body.id,
+        name: req.body.name,
+        base_weight: req.body.base_weight,
+        kcal: req.body.kcal,
+        car: req.body.car,
+        pro: req.body.pro,
+        fat: req.body.fat
     };
 
-    const message = food.editFood(data);    
+    const message = food.editFood(data);
     message
         .then(response => {res.json(response)});
 });

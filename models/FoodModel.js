@@ -35,13 +35,17 @@ class FoodModel {
 
     async editFood(data)
     {
-
-        
-        return;
         const returnData = await new Promise((resolve, reject) => {
-            const row =
-                `UPDATE foods (name, base_weight, kcal, car, pro, fat)
-                VALUES (${data.name}, ${data.base_weight}, ${data.kcal}, ${data.car}, ${data.pro}, ${data.fat});`;
+            const row = `UPDATE foods
+                SET
+                    name = "${data.name}",
+                    base_weight = "${data.base_weight}",
+                    kcal = "${data.kcal}",
+                    car = "${data.car}",
+                    pro = "${data.pro}",
+                    fat = "${data.fat}"
+                WHERE id = "${data.id}";`;
+
             FoodModel.db.getConnection.query(row, (err, results, fields) => {
                 if (err) {
                     reject(err);

@@ -32,16 +32,6 @@ class FoodController {
     {
         let logMessage = { status: 200, message: "Food updated with success!" };
 
-        delete data.name;
-
-        let columns = Object.keys(data);
-        columns = columns.join(",");
-        let values = Object.values(data);
-        values = values.join(",");
-
-        console.log(columns);
-        console.log(values);
-        return;
         try {
             await FoodController.model.editFood(data);
         } catch (error) {
